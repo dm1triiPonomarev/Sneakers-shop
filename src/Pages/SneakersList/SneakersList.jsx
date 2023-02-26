@@ -79,11 +79,10 @@ export const MainArray = [
 
 
 const SneakersList = () => {
-
+	const [filterArgs, setFilterArgs] = useState('')
 
 	return (
 		<div>
-			{currentOrderCount}
 			<div div className="content" >
 				<div className="search-wrapper">
 					<h1>Все кроссовки</h1>
@@ -91,13 +90,13 @@ const SneakersList = () => {
 						<button className='search-btn' >
 							<img src={searchLogo} alt="search" />
 						</button>
-						<input type="text" className="search-input " placeholder='Поиск...' />
+						<input onChange={(e) => setFilterArgs(e.target.value)} type="text" className="search-input " placeholder='Поиск...' />
 					</div>
 				</div>
 
 				<div className="sneakers ">
 					{MainArray
-						.filter(item => item.title.toLocaleLowerCase().includes(''))
+						.filter(item => item.title.toLocaleLowerCase().includes(filterArgs))
 						.map(item => {
 							return (
 								<div key={item.id} className="card">
