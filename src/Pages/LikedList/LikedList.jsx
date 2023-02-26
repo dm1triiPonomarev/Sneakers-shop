@@ -1,7 +1,11 @@
 import React from 'react'
-import { MainArray } from './SneakersLisrt'
-import BuyButton from './SneakersList/BuyButton'
-import LikeButton from './SneakersList/LikeButton'
+import BuyButton from '../SneakersList/BuyButton'
+import LikeButton from '../SneakersList/LikeButton'
+import { MainArray } from '../SneakersList/SneakersList'
+
+
+
+
 
 const LikedList = () => {
 	return (

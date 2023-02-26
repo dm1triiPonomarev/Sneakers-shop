@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import active from './/imgs/likedActive.svg'
+import unliked from './/imgs/unlike.svg'
+
 
 function LikeButton(item) {
 	const [isActive, setIsActive] = useState(false)
@@ -16,11 +19,11 @@ function LikeButton(item) {
 				item.item.liked === true
 					?
 					<button onClick={() => { setIsActive(false); resetActive() }} className={'card-like-btn'}>
-						<img src={'/img/likedActive.svg'} alt="like" />
+						<img src={active} alt="like" />
 					</button>
 					:
 					<button onClick={() => { setIsActive(true); setActive() }} className={'card-unlike-btn'}>
-						<img src={'/img/unlike.svg'} alt="unlike" />
+						<img src={unliked} alt="unlike" />
 					</button>
 			}
 		</>

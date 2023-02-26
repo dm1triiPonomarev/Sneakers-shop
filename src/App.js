@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Header from "./Components/Header";
-import LikedList from "./Pages/LikedList";
-import Order from "./Pages/Order";
-import Profile from "./Pages/Profile";
-import SneakersList from "./Pages/SneakersLisrt";
-import SneakersLisrt, { MainArray } from "./Pages/SneakersLisrt";
+import Header from "./Components/Header/Header";
+import LikedList from "./Pages/LikedList/LikedList";
+import Order from "./Pages/Order/Order";
+import Profile from "./Pages/Profile/Profile";
+import SneakersList from "./Pages/SneakersList/SneakersList";
+
+
 
 localStorage.setItem('currentCount', 0)
 
