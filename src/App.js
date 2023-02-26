@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
+import LikedList from "./Pages/LikedList";
+import Order from "./Pages/Order";
+import Profile from "./Pages/Profile";
+import SneakersList from "./Pages/SneakersLisrt";
+import SneakersLisrt, { MainArray } from "./Pages/SneakersLisrt";
+
+localStorage.setItem('currentCount', 0)
+
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<div className="wrapper clear">
+
+				<Header />
+				<Routes>
+					<Route path="/" element={<SneakersList />} />
+					<Route path="/order" element={<Order />} />
+					<Route path="/favorites" element={<LikedList />} />
+					<Route path="/profile" element={<Profile />} />
+				</Routes>
+
+			</div>
+
+		</>
+	);
 }
 
 export default App;
