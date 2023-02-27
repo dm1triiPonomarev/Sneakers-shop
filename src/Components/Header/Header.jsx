@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { currentOrderCount } from '../../Pages/SneakersList/BuyFunction'
+import { Check, currentOrderCount } from '../../Pages/SneakersList/BuyFunction'
 import logoImage from './/imgs/logo.png'
 import cartImage from './/imgs/cart.svg'
 import likedListImage from './/imgs/LikedList.png'
 import userLogoImage from './/imgs/user.svg'
+import Order from '../../Pages/Order/Order'
+import OrderModal from '../OrderModal/OrderModal'
 
-const Header = () => {
+const Header = ({ currentCount }) => {
 
+	const [isModal, setIsModal] = useState(false)
 
-
+	function setmodal() {
+		localStorage.setItem('modal', true)
+	}
 
 	return (
 
 		<div>
+
 			<header className="d-flex justify-between align-center">
 				<div className="d-flex align-center">
 
@@ -32,16 +38,13 @@ const Header = () => {
 				</div>
 
 				<ul className="d-flex">
-
-					<li className="mr-30 d-flex">
-						<Link to={'/order'}>
-							<img style={{ cursor: 'pointer' }} width={20} height={20} src={cartImage} alt='cart' />
-						</Link>
-
-
-						<span className='header-price'>{currentOrderCount}  руб.</span>
+					{/* <Link to={'/order'}> */}
+					<li onClick={() => setIsModal(true)} className="mr-30 d-flex">
+						<img style={{ cursor: 'pointer' }} width={20} height={20} src={cartImage} alt='cart' />
+						<span className='header-price'>{currentCount}  руб.</span>
 
 					</li>
+					{/* </Link> */}
 
 					<li className='mr-30 d-flex'>
 						<Link to={'/favorites'}>

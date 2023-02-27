@@ -7,9 +7,8 @@ export function Check() {
 const BuyFunction = (price) => {
 	localStorage.removeItem('currentCount')
 	localStorage.setItem("currentCount", Number(currentOrderCount) + Number(price.price))
-	console.log(Number(currentOrderCount));
 	currentOrderCount = localStorage.getItem('currentCount')
-	console.log(localStorage.getItem("currentCount"));
+
 
 }
 

@@ -7,8 +7,14 @@ const Order = () => {
 	return (
 
 		<div className='p-40 '>
-			<h1>TOTAL:</h1>
-			{currentOrderCount} руб.
+			{currentOrderCount > 0 ?
+				<>
+					<h1>TOTAL:</h1>
+					{currentOrderCount} руб.
+				</>
+				:
+				<p></p>
+			}
 		</div>
 
 	)

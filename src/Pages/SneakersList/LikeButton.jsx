@@ -6,6 +6,7 @@ import unliked from './/imgs/unlike.svg'
 function LikeButton(item) {
 	const [isActive, setIsActive] = useState(false)
 	function setActive() {
+
 		item.item.liked = true
 	}
 	function resetActive() {

@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import BuyFunction, { Check, currentOrderCount } from './BuyFunction';
 import added from './/imgs/added.svg'
 import plus from './/imgs/plus.svg'
+import OrderModal from '../../Components/OrderModal/OrderModal';
 
 const BuyButton = (price) => {
 
 	const [isBought, setIsBought] = useState(false)
-	function addLocalBuy() {
-		localStorage.setItem('modal', true)
-	}
+
 
 	return (
 
@@ -16,7 +15,8 @@ const BuyButton = (price) => {
 			{
 				isBought === true
 					?
-					<button onClick={() => { setIsBought(false); addLocalBuy() }}   >
+					<button onClick={() => { setIsBought(false); Check() }}   >
+
 						<img src={added} alt="plus" />
 					</button>
 					:
@@ -24,6 +24,7 @@ const BuyButton = (price) => {
 						<img src={plus} alt="buy" />
 					</button>
 			}
+
 		</>
 
 	)
