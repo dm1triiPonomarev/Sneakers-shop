@@ -44,14 +44,14 @@ const LikedList = () => {
 	function HasLiked() {
 		return (
 			<>
-				<div className="d-flex align-center">
+				{/* <div className="d-flex align-center">
 					<Link to={'/'}>
 						<button className='d-flex justify-center align-center' style={{ width: '35px', height: '35px', background: '#fff', border: '1px solid #f2f2f2', borderRadius: "8px", marginRight: "20px", textAlign: 'center' }}>
 							<img src={arrow} alt="arrow" />
 						</button>
 					</Link>
 					<h1>Моe избранное</h1>
-				</div>
+				</div> */}
 				<div className='content'>
 					<div style={{ justifyContent: 'left' }} className="sneakers">
 						{filtredArray

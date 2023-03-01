@@ -14,7 +14,7 @@ const OrderModal = ({ setModal }) => {
 				<div onClick={e => { setVisible(false); setModal(false) }} className='modal'>
 
 					<div onClick={e => e.stopPropagation()} className="modal-content">
-						<h1 className='mr-30' >Корзина</h1>
+						<h1 className='mr-30 mt-50ттт' >Корзина</h1>
 
 						<LikedList />
 						<div className="order-footer">

@@ -12,14 +12,14 @@ export const MainArray = [
 		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
 		src: first,
 		price: '12999',
-		liked: true,
+		liked: false,
 		id: 1
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
 		price: '12999',
-		liked: true,
+		liked: false,
 		id: 2
 	},
 	{
