@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from 'react'
+
 import { Link } from 'react-router-dom'
-import { Check, currentOrderCount } from '../../Pages/SneakersList/BuyFunction'
 import logoImage from './/imgs/logo.png'
 import cartImage from './/imgs/cart.svg'
 import likedListImage from './/imgs/LikedList.png'
 import userLogoImage from './/imgs/user.svg'
-import Order from '../../Pages/Order/Order'
-import OrderModal from '../OrderModal/OrderModal'
+import { useDispatch, useSelector } from 'react-redux'
+import { setModal } from '../../Store/Reducers/ModalReducer'
 
-const Header = ({ currentCount }) => {
+const Header = () => {
+	const currentOrderPrice = useSelector(state => state.cash.orderPrice)
+	const disatch = useDispatch()
 
-	const [isModal, setIsModal] = useState(false)
-
-	function setmodal() {
-		localStorage.setItem('modal', true)
-	}
 
 	return (
 
@@ -38,13 +34,13 @@ const Header = ({ currentCount }) => {
 				</div>
 
 				<ul className="d-flex">
-					{/* <Link to={'/order'}> */}
-					<li onClick={() => setIsModal(true)} className="mr-30 d-flex">
+
+					<li onClick={() => disatch(setModal())} className="mr-30 d-flex">
 						<img style={{ cursor: 'pointer' }} width={20} height={20} src={cartImage} alt='cart' />
-						<span className='header-price'>{currentCount}  руб.</span>
+						<span className='header-price'>{currentOrderPrice}  руб.</span>
 
 					</li>
-					{/* </Link> */}
+
 
 					<li className='mr-30 d-flex'>
 						<Link to={'/favorites'}>

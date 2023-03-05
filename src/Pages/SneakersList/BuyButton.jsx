@@ -1,26 +1,27 @@
 import React, { useState } from 'react'
-import BuyFunction, { Check, currentOrderCount } from './BuyFunction';
 import added from './/imgs/added.svg'
 import plus from './/imgs/plus.svg'
-import OrderModal from '../../Components/OrderModal/OrderModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { Buy } from '../../Store/Reducers/OrderCashReducer';
+import { AddItem } from '../../Store/Reducers/BuyLogicReducer';
+import { setModal } from '../../Store/Reducers/ModalReducer';
 
-const BuyButton = (price) => {
+const BuyButton = ({ item }) => {
+	const dispatch = useDispatch()
 
-	const [isBought, setIsBought] = useState(false)
-
+	const orderList = useSelector(state => state.orderItems.orderList)
 
 	return (
 
 		<>
 			{
-				isBought === true
+				orderList.filter(orderItem => orderItem.id === item.id).length > 0
 					?
-					<button onClick={() => { setIsBought(false); Check() }}   >
-
+					<button onClick={() => { dispatch(setModal()) }}   >
 						<img src={added} alt="plus" />
 					</button>
 					:
-					<button onClick={() => { setIsBought(true); BuyFunction(price) }} className={'buy-btn'}  >
+					<button onClick={() => { dispatch(Buy(Number(item.price))); dispatch(AddItem(item)); }} className={'buy-btn'}  >
 						<img src={plus} alt="buy" />
 					</button>
 			}

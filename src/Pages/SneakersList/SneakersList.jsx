@@ -1,79 +1,88 @@
 import React, { useEffect, useState } from 'react'
-import BuyButton from '../SneakersList/BuyButton';
-import LikeButton from '../SneakersList/LikeButton';
 import first from './/imgs/sneakers/1.jpg'
 import second from './/imgs/sneakers/2.jpg'
 import searchLogo from './/imgs/search.svg'
-import { currentOrderCount } from './BuyFunction';
-import OrderModal from '../../Components/OrderModal/OrderModal';
+
+import axios from 'axios';
+import SneakerCard from '../../Components/SneakerCard';
+import Slider from './Slider';
+
 
 export const MainArray = [
 	{
 		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
 		src: first,
 		price: '12999',
-		liked: false,
 		id: 1
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
 		price: '12999',
-		liked: false,
+
 		id: 2
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
 		price: '12999',
-		liked: false,
+
 		id: 3
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
 		price: '12999',
-	},
-	{
-		title: 'Мужские Кроссовки Nike Air Max 270',
-		src: second,
-		price: '12999'
-	},
-	{
-		title: 'Мужские Кроссовки Nike Air Max 270',
-		src: second,
-		price: '12999'
+		id: 4
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
 		price: '12999',
-		liked: ''
+		id: 5
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
-		price: '12999'
+		price: '12999',
+		id: 6
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
-		price: '12999'
+		price: '12999',
+		liked: '',
+		id: 7
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
-		price: '12999'
+		price: '12999',
+		id: 8
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
-		price: '12999'
+		price: '12999',
+		id: 9
 	},
 	{
 		title: 'Мужские Кроссовки Nike Air Max 270',
 		src: second,
-		price: '12999'
+		price: '12999',
+		id: 10
+	},
+	{
+		title: 'Мужские Кроссовки Nike Air Max 270',
+		src: second,
+		price: '12999',
+		id: 11
+	},
+	{
+		title: 'Мужские Кроссовки Nike Air Max 270',
+		src: second,
+		price: '12999',
+		id: 12
 	},
 ]
 
@@ -82,44 +91,10 @@ export const MainArray = [
 const SneakersList = () => {
 	const [filterArgs, setFilterArgs] = useState('')
 
-	function SneakerCard() {
-		return (
-			<>
-				{MainArray
-					.filter(item => item.title.toLocaleLowerCase().includes(filterArgs))
-					.map(item => {
-						return (
-							<div key={item.id} className="card">
-								<div className="sneaker-wrapper">
-									<LikeButton item={item} />
-									<img className="sneakers-img" width={133} height={112} src={item.src} alt='sneakers-img' />
-								</div>
-								<h5 className="sneaker-title">{item.title}</h5>
-
-
-
-								<div>
-									<div className="priceInner">
-										<div>
-											<span className="priceSpan">Price:</span>
-											<br />
-											<b className="itemPrice">{item.price}</b>
-										</div>
-										<BuyButton price={item.price} />
-									</div>
-								</div>
-							</div>
-
-						)
-					})}
-			</>
-		)
-	}
-
 	return (
 		<div>
-
 			<div div className="content" >
+				<Slider />
 				<div className="search-wrapper">
 					<h1>Все кроссовки</h1>
 					<div className="search">
@@ -131,11 +106,15 @@ const SneakersList = () => {
 				</div>
 
 				<div className="sneakers ">
-					<SneakerCard />
-				</div>
+					{MainArray
+						.filter(item => item.title.toLocaleLowerCase().includes(filterArgs))
+						.map(item => {
+							return (
+								<SneakerCard item={item} />
 
-			</div>
-			<div className="">
+							)
+						})}
+				</div>
 
 			</div>
 		</div>

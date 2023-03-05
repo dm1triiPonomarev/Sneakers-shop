@@ -1,52 +1,77 @@
-import React, { useState } from 'react'
-import LikedList from '../../Pages/LikedList/LikedList';
-import { currentOrderCount } from '../../Pages/SneakersList/BuyFunction';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddBoughtList, CancelIsBought, IsBought } from '../../Store/Reducers/BuyLogicReducer';
+// import { AddBoughtList, IsBought } from '../../Store/Reducers/BoughtListReducer';
+import { removeModal } from '../../Store/Reducers/ModalReducer';
+import { NullCash } from '../../Store/Reducers/OrderCashReducer';
+import EmptyOrder from '../OrderList/EmptyOrder/EmptyOrder';
+import OrderDone from '../OrderList/OrderDone/OrderDone';
+import OrderList from '../OrderList/OrderList';
 import arrow from './/imgs/arrow.svg'
 
-const OrderModal = ({ setModal }) => {
+const OrderModal = () => {
 
-	const [visible, setVisible] = useState(true)
+	const dispatch = useDispatch()
+	const currentOrderPrice = useSelector(state => state.cash.orderPrice)
+	const OrderListForLength = useSelector(state => state.orderItems.orderList)
+	const isBought = useSelector(state => state.orderItems.isBought)
+
+
 
 	return (
 		<>
 
-			{visible &&
-				<div onClick={e => { setVisible(false); setModal(false) }} className='modal'>
+			<div onClick={() => { dispatch(removeModal()) }} className='modal'>
+				<div onClick={e => e.stopPropagation()} className="modal-content ">
 
-					<div onClick={e => e.stopPropagation()} className="modal-content">
-						<h1 className='mr-30 mt-50ттт' >Корзина</h1>
+					<h1 className='modal-title ' >Корзина</h1>
 
-						<LikedList />
-						<div className="order-footer">
-							<div className="d-flex mb-20 justify-between">
-								Итого:
-								<div className="orderBorder"></div>
-								<b>
-									{currentOrderCount} руб.
-								</b>
-							</div>
+					{OrderListForLength.length <= 0 ?
 
-							<div className="d-flex  justify-between">
-								Налог 5%:
-								<div className="orderBorder"></div>
-								<b>
-									{currentOrderCount * 0.05} руб.
-								</b>
-							</div>
+						<EmptyOrder />
+						:
+						isBought === true ?
+							<OrderDone />
+							:
+							<>
+
+								<OrderList />
+								<div className="order-footer-wrapper">
+
+									<div className="mb-15">
+
+										<div className="order-footer ">
+											Итого:
+											<div className="orderBorder"></div>
+											<b>
+												{currentOrderPrice} руб.
+											</b>
+										</div>
+
+										<div className="order-footer">
+											Налог 5%:
+											<div className="orderBorder"></div>
+											<b>
+												{Math.round(currentOrderPrice * 0.05)} руб.
+											</b>
+										</div>
+									</div>
 
 
+									<button onClick={() => { dispatch(AddBoughtList(OrderListForLength)); dispatch(IsBought()); dispatch(NullCash()) }} className="order-btn">
+										Оформить заказ
+										<img className='orderArrowImg' src={arrow} alt="arrow" />
+									</button>
+								</div>
+							</>
+					}
 
 
-
-							<button onClick={() => { setModal(false); setVisible(false) }} className="order-btn">
-								Оформить заказ
-								<img className='orderArrowImg' src={arrow} alt="arrow" />
-							</button>
-						</div>
-					</div>
 
 				</div>
-			}
+			</div>
+
+
+
 		</>
 
 	)

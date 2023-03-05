@@ -1,0 +1,19 @@
+.slider-wrapper{
+	display: flex;
+	justify-content: flex-end;
+}
+.slider-btn{
+	position: absolute;
+	background: #FFFFFF;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+border-radius: 43px;
+border: none;
+width: 2.2em;
+height: 2.2em;
+color: #848383;
+text-align: center;
+justify-content: center;
+display: flex;
+
+align-items: center;
+}
