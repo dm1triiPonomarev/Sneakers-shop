@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/Sneakers-shop/static/css/main.f6f1e1ea.css",
-    "main.js": "/Sneakers-shop/static/js/main.de796b5c.js",
+    "main.css": "/Sneakers-shop/static/css/main.3e56e0bf.css",
+    "main.js": "/Sneakers-shop/static/js/main.d33dfdc9.js",
+    "static/media/bcg-img.png": "/Sneakers-shop/static/media/bcg-img.ed65fbb597433ae2ac10.png",
     "static/media/2.jpg": "/Sneakers-shop/static/media/2.6cd1ce77c49c35a4d999.jpg",
+    "static/media/orderDone.svg": "/Sneakers-shop/static/media/orderDone.da776ff4dd76bcb3ea1df25a98b39937.svg",
     "static/media/1.jpg": "/Sneakers-shop/static/media/1.ab6280be9b13125606d2.jpg",
     "static/media/added.svg": "/Sneakers-shop/static/media/added.890c21e6e092e231b04d7f8d3b23767a.svg",
     "static/media/likedActive.svg": "/Sneakers-shop/static/media/likedActive.2a7f884671a17364cb52939425ca405f.svg",
@@ -12,12 +14,12 @@
     "index.html": "/Sneakers-shop/index.html",
     "static/media/search.svg": "/Sneakers-shop/static/media/search.48c52bf5d459537e27c07f88eb08c050.svg",
     "static/media/plus.svg": "/Sneakers-shop/static/media/plus.a4c35ddbacd9564e07efd7494cfde80d.svg",
-    "static/media/arrow.svg": "/Sneakers-shop/static/media/arrow.fc3222511ec5a224a4abf3bbf4c2566f.svg",
-    "main.f6f1e1ea.css.map": "/Sneakers-shop/static/css/main.f6f1e1ea.css.map",
-    "main.de796b5c.js.map": "/Sneakers-shop/static/js/main.de796b5c.js.map"
+    "static/media/arrow.svg": "/Sneakers-shop/static/media/arrow.5927525c575e5ffd8bfc22dc6b135971.svg",
+    "main.3e56e0bf.css.map": "/Sneakers-shop/static/css/main.3e56e0bf.css.map",
+    "main.d33dfdc9.js.map": "/Sneakers-shop/static/js/main.d33dfdc9.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6f1e1ea.css",
-    "static/js/main.de796b5c.js"
+    "static/css/main.3e56e0bf.css",
+    "static/js/main.d33dfdc9.js"
   ]
 }
