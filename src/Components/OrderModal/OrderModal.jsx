@@ -20,7 +20,7 @@ const OrderModal = () => {
 	return (
 		<>
 
-			<div onClick={() => { dispatch(removeModal()) }} className='modal'>
+			<div onClick={() => { dispatch(removeModal()); { isBought && dispatch(CancelIsBought()) } }} className='modal'>
 				<div onClick={e => e.stopPropagation()} className="modal-content ">
 
 					<h1 className='modal-title ' >Корзина</h1>
