@@ -16,7 +16,6 @@ const OrderModal = () => {
 	const isBought = useSelector(state => state.orderItems.isBought)
 
 
-
 	return (
 		<>
 
